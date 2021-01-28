@@ -1,6 +1,6 @@
 {
   "name": "@anyways-open/routing-api",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An npm package to interact with the ANYWAYS routing-api.",
   "main": "./dist/RoutingApi.js",
   "scripts": {
