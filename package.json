@@ -1,0 +1,34 @@
+{
+  "name": "@anyways-open/routing-api",
+  "version": "0.0.1",
+  "description": "An npm package to interact with the ANYWAYS routing-api.",
+  "main": "./dist/RoutingApi.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint \"**/*.ts\""
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anyways-open/npm-routing-api.git"
+  },
+  "keywords": ["routing", "mobility"],
+  "author": "ANYWAYS BV",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anyways-open/npm-routing-api/issues"
+  },
+  "homepage": "https://github.com/anyways-open/npm-routing-api#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.14.1",
+    "@typescript-eslint/parser": "^4.14.1",
+    "eslint": "^7.18.0",
+    "typescript": "^4.1.3"
+  },
+  "dependencies": {}
+}
