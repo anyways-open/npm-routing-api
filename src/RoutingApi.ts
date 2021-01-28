@@ -1,5 +1,6 @@
 import { Profile } from "./Profile";
-import { Profiles } from "./Profiles";
+
+export { Profile }
 
 export class RoutingApi {
     url: string;
