@@ -26,8 +26,14 @@ export class RoutingApi {
                     // But the profiles had to be encapsulated...
                     response = response.profiles;
                 }
-                const parse = <Profile[]>response;
-                callback(parse);
+                const parsed = <Profile[]>response;
+                parsed.forEach(p => {
+                    p.id = p.type;
+                    if (p.name) {
+                        p.id = p.type + "." + p.name;
+                    }
+                });
+                callback(parsed);
             }
             else {
                 console.log("getProfiles failed: " + xhr.status);
