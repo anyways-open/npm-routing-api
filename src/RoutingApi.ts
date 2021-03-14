@@ -65,7 +65,43 @@ export class RoutingApi {
                 callback(parse);
             }
             else {
-                console.log("getProfiles failed: " + xhr.status);
+                console.log("getRoute failed: " + xhr.status);
+            }
+        };
+        xhr.send();
+    }
+
+    getRoutes(options: { locations: { lng: number, lat: number }[], profiles: string[] }, callback: (routes: any) => void) : void {
+        const path = "v1/routes";
+
+        let loc = "";
+        for (const l in options.locations) {
+            const location = options.locations[l];
+            if (loc.length > 0) loc += "&";
+            loc = loc + `loc=${ location.lng },${ location.lat }`;
+        }
+        loc = loc + ``;
+
+        let prof = "";
+        for (const l in options.profiles) {
+            const profile = options.profiles[l];
+            if (prof.length > 0) prof += "&";
+            prof = prof + `profile=${ profile }`;
+        }
+
+        const url = `${ this.url }${ path }?apiKey=${ this.key }&${ prof }&${ loc }&format=multijson`;
+
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", url);
+        xhr.onload = () => {
+            if (xhr.status === 200) {
+                const response = JSON.parse(xhr.responseText);
+
+                const parse = response;
+                callback(parse);
+            }
+            else {
+                console.log("getRoutes failed: " + xhr.status);
             }
         };
         xhr.send();
