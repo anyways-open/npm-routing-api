@@ -42,7 +42,7 @@ export class RoutingApi {
         xhr.send();
     }
 
-    getRoute(options: { locations: { lng: number, lat: number }[], profile: string }, callback: (route: any) => void) : void {
+    getRoute(options: { locations: { lng: number, lat: number }[], profile: string, alternative?: boolean }, callback: (route: any) => void) : void {
         const path = "v1/routes";
 
         let loc = "";
@@ -53,7 +53,11 @@ export class RoutingApi {
         }
         loc = loc + ``;
 
-        const url = `${ this.url }${ path }?apiKey=${ this.key }&profile=${ options.profile }&${ loc }`;
+        let url = `${ this.url }${ path }?apiKey=${ this.key }&profile=${ options.profile }&${ loc }`;
+
+        if (options.alternative) {
+            url = `${ url }&alternative=true`;
+        }
 
         const xhr = new XMLHttpRequest();
         xhr.open("GET", url);
