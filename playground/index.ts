@@ -18,5 +18,5 @@ ra.getRoute({
         lat: 51.25960528564359
     } ],
     profile: "bicycle.commute",
-    alternative: true
+    alternatives: 3
 }, r => console.log(r));
