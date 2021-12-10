@@ -13,7 +13,7 @@ export class RoutingApi {
 
     getProfiles(callback: (profiles: Profile[]) => void) : void {      
         const path = "v1/profiles";
-        const url = `${ this.url }${ path }?apiKey=${ this.key }`;
+        const url = `${ this.url }${ path }?access_token=${ this.key }`;
 
         const xhr = new XMLHttpRequest();
         xhr.open("GET", url);
@@ -53,7 +53,7 @@ export class RoutingApi {
         }
         loc = loc + ``;
 
-        let url = `${ this.url }${ path }?apiKey=${ this.key }&profile=${ options.profile }&${ loc }`;
+        let url = `${ this.url }${ path }?access_token=${ this.key }&profile=${ options.profile }&${ loc }`;
 
         if (options.alternatives) {
             url = `${ url }&alternative=${ options.alternatives }`;
@@ -93,7 +93,7 @@ export class RoutingApi {
             prof = prof + `profile=${ profile }`;
         }
 
-        const url = `${ this.url }${ path }?apiKey=${ this.key }&${ prof }&${ loc }&format=multijson`;
+        const url = `${ this.url }${ path }?access_token=${ this.key }&${ prof }&${ loc }&format=multijson`;
 
         const xhr = new XMLHttpRequest();
         xhr.open("GET", url);
