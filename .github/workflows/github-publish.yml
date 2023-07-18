@@ -2,7 +2,7 @@ name: github-publish
 
 on:
   push:
-    branches: [ develop ]
+    branches: [ main ]
 
 jobs:
   publish:
